@@ -1,0 +1,74 @@
+
+Day 4 tasks answers:
+
+1.
+let obj1 = { name: "Person 1", age: 5 };
+let obj2 = { age: 5, name: "Person 1" };
+
+let keys1 = Object.keys(obj1);
+let keys2 = Object.keys(obj2);
+
+if (keys1.length !== keys2.length) {
+    console.log("The objects have different properties");
+} else {
+    let equal = true;
+    for (let key of keys1) {
+        if (!(key in obj2) || obj1[key] !== obj2[key]) {
+            equal = false;
+            break;
+        }
+    }
+    if (equal) {
+        console.log("The objects have the same properties");
+    } else {
+        console.log("The objects have different properties");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+2.
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://restcountries.com/v3.1/all', true);
+xhr.onreadystatechange = function() {
+  if (xhr.readyState === 4 && xhr.status === 200) {
+    var countries = JSON.parse(xhr.responseText);
+    countries.forEach(function(country) {
+      console.log(country.flag);
+    });
+  }
+};
+xhr.send();
+
+
+
+
+
+
+
+3.
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://restcountries.com/v3.1/all', true);
+xhr.onreadystatechange = function() {
+  if (xhr.readyState === 4 && xhr.status === 200) {
+    var countries = JSON.parse(xhr.responseText);
+    countries.forEach(function(country) {
+      console.log('Name: ' + country.name);
+      console.log('Region: ' + country.region);
+      console.log('Sub-Region: ' + country.subregion);
+      console.log('Population: ' + country.population);
+      console.log('\n');
+    });
+  }
+};
+xhr.send();
+
+
+
